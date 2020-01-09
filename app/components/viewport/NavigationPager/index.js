@@ -78,6 +78,7 @@ class NavigationPager extends Component {
   render() {
     const {selection, onPress} = this.props
     const {tabs} = this.state
+    console.log(this.state);
 
     return (
       <View style={s.container}>

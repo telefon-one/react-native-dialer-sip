@@ -32,6 +32,8 @@ export default class ViewPager1 extends Component {
         });
         this.setState({scrollingTo: nextProps.selectedIndex});
       } else {
+        console.log("nextProps.selectedIndex",nextProps.selectedIndex);
+        //this.scrollView.goToPage(nextProps.selectedIndex);
         this.scrollView.setPage(nextProps.selectedIndex);
         this.setState({selectedIndex: nextProps.selectedIndex});
       }
@@ -94,7 +96,7 @@ export default class ViewPager1 extends Component {
 
   renderAndroid() {
     return (
-      <ViewPager
+      <View
         ref={c => {
           this.scrollView = c;
         }}
@@ -102,7 +104,7 @@ export default class ViewPager1 extends Component {
         onPageSelected={this._handleHorizontalScroll}
         style={{container:s.container}}>
         {this.renderContent()}
-      </ViewPager>
+      </View>
     );
   }
 
