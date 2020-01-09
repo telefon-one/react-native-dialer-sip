@@ -8,7 +8,9 @@ export const DESTROY = 'app/DESTROY'
 export function init() {
   return async (dispatch, getState) => {
     try {
+      console.log("4");
       await dispatch(PjSip.init())
+      console.log("5");
     } catch (e) {
       console.log(e)
     }

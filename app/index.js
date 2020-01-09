@@ -1,4 +1,4 @@
-import {Platform, BackAndroid} from 'react-native'
+import {Platform, BackHandler} from 'react-native'
 import React, {Component} from 'react'
 import {Provider} from 'react-redux'
 import configureStore from './configureStore'
@@ -14,11 +14,13 @@ import * as App from './modules/app'
 import * as Navigation from './modules/navigation'
 
 store.dispatch(async (dispatch, getState) => {
+  console.log("111");
   await dispatch(App.init())
-
+  console.log("222");
   // Render
   let route = {name: 'settings'}
   const {calls, accounts} = getState().pjsip
+
 
   for (const id in accounts) {
     if (accounts.hasOwnProperty(id)) {
@@ -41,7 +43,7 @@ store.dispatch(async (dispatch, getState) => {
 
   // Hooks
   if (Platform.OS === 'android') {
-    BackAndroid.addEventListener('hardwareBackPress', function () {
+    BackHandler.addEventListener('hardwareBackPress', function () {
       const prev = getState().navigation.previous.name
 
       if (prev) {

@@ -1,5 +1,5 @@
 import {Platform, PushNotificationIOS, AppState} from 'react-native'
-import {Endpoint} from 'react-native-pjsip'
+import {Endpoint} from 'react-native-sip2'
 import RNCallKit from 'react-native-callkit'
 import VoipPushNotification from 'react-native-voip-push-notification'
 import uuid from 'uuid'
@@ -27,11 +27,12 @@ import * as Navigation from './navigation'
  * Initialize PjSIP functionality.
  */
 export function init() {
+  console.log("55");
   return async function (dispatch, getState) {
     // Retrieving PjSip service state
     // It is possible that Endpoint instance already have registered accounts and active calls.
     // (because Javascript state is not persistent when User close application, e.g. application goes to background state)
-
+    console.log("6");
     const endpoint = new Endpoint()
     const state = await endpoint.start({
       service: {
@@ -42,6 +43,7 @@ export function init() {
         useOtherNetworks: true
       }
     })
+    console.log("7");
     const {accounts, calls, settings: endpointSettings, connectivity} = state
 
     // Subscribe to endpoint events

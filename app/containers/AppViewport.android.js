@@ -10,7 +10,7 @@ import DialerViewport from './dialer/DialerViewport'
 import SettingsViewport from './settings/SettingsViewport'
 
 import NavigationPager from '../components/viewport/NavigationPager'
-import ViewPager from '../components/common/ViewPager'
+import ViewPager1 from '../components/common/ViewPager'
 
 import cs from '../assets/styles/containers'
 
@@ -80,7 +80,14 @@ class AppViewport extends Component {
         tabIndex = 3
         break
     }
-
+/*
+        <ViewPager
+          style={cs.max}
+          count={4}
+          selectedIndex={tabIndex}
+          onSelectedIndexChange={onSelectedIndexChange}
+        >
+*/
     return (
       <View style={cs.max}>
         <View style={{height: 50, backgroundColor: '#3f5057', flexDirection: 'row'}}>
@@ -91,7 +98,7 @@ class AppViewport extends Component {
             <NavigationPager selection={tab} onPress={onTabSelect} />
           </View>
         </View>
-        <ViewPager
+        <ViewPager1
           style={cs.max}
           count={4}
           selectedIndex={tabIndex}
@@ -109,7 +116,7 @@ class AppViewport extends Component {
           <View style={cs.max}>
             <SettingsViewport />
           </View>
-        </ViewPager>
+        </ViewPager1>
       </View>
     )
   }

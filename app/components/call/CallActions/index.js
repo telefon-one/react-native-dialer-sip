@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+
 import {View} from 'react-native'
+//import {View} from 'react-native-viewpager'
 
 import s from './styles'
-import ViewPager from '../../common/ViewPager'
+import ViewPager1 from '../../common/ViewPager'
 import CallAction from '../CallAction'
 
 export default class CallActions extends Component {
@@ -84,10 +86,16 @@ export default class CallActions extends Component {
     const held = this.props.call.isHeld()
     const muted = this.props.call.isMuted()
     const speaker = this.props.call.isSpeaker()
-
+/*
+    <ViewPager
+    style={s.pager}
+    count={2}
+    selectedIndex={this.state.actionsIndex}
+    onSelectedIndexChange={this._onSelectedIndexChange}
+*/
     return (
       <View {...this.props.style}>
-        <ViewPager
+        <ViewPager1
           style={s.pager}
           count={2}
           selectedIndex={this.state.actionsIndex}
@@ -145,7 +153,7 @@ export default class CallActions extends Component {
             </View>
             <View style={s.actionsPadding}/>
           </View>
-        </ViewPager>
+        </ViewPager1>
         <View style={s.switchContainer}>
           <View style={[s.switchIndicatorLeft, s.switchIndicator, (this.state.actionsIndex === 0 ? s.switchActive : null)]}/>
           <View style={[s.switchIndicatorRight, s.switchIndicator, (this.state.actionsIndex === 1 ? s.switchActive : null)]}/>

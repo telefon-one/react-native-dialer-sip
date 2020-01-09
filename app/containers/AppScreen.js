@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {View, StatusBar} from 'react-native';
-import {Navigator} from 'react-native-deprecated-custom-components';
+import {Navigator} from '../../app/old/navigator/CustomComponents';//'react-native-deprecated-custom-components';
+
+//import {createAppContainer} from 'react-navigation';
 //import {createStackNavigator} from 'react-navigation-stack';
 
 import {connect} from 'react-redux'
@@ -15,13 +17,20 @@ import MediaSettingsScreen from '../screens/MediaSettingsScreen'
 import Viewport from './AppViewport'
 import cs from '../assets/styles/containers'
 
-class App extends Component {
-  /*Navigator = createStackNavigator({
-    Home: {screen: HomeScreen},
-    Profile: {screen: ProfileScreen},
-  });*/
+/*
+const AppNavigator = createStackNavigator({
+  launch: {screen: LaunchScreen},
+  dialer: {screen: Viewport},
+  call: {screen: CallScreen},
+  account: {screen: AccountScreen},
+  network_settings: {screen: NetworkSettingsScreen},
+  media_settings: {screen: MediaSettingsScreen},
+});
 
-  
+const AppContainer = createAppContainer(AppNavigator);
+*/
+
+class App extends Component {
   componentDidMount() {
     this.props.onNavigatorMount(this.navigatorView)
   }
@@ -62,9 +71,7 @@ class App extends Component {
     const barStyle = "light-content"
     const route = navigation.current.name ? navigation.current : navigation.init
 
-
-    
-        return (
+    return (
       <View style={cs.max}>
         <StatusBar
           backgroundColor={barColor}
@@ -82,7 +89,6 @@ class App extends Component {
         />
       </View>
     )
-    
   }
 }
 

@@ -23,7 +23,6 @@
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
 <!-- pj sip -->
-<!--
     <service
         android:name="com.carusto.ReactNativePjSip.PjSipService"
         android:enabled="true"
@@ -34,7 +33,6 @@
           <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
         </intent-filter>
       </receiver>
--->
 <!-- pj sip -->
 
     </application>
