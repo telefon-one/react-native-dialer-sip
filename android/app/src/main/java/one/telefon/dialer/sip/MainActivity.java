@@ -1,4 +1,4 @@
-package one.telefon.dialer.sip3;
+package one.telefon.dialer.sip;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "teleexample";
+    return "dialersip";
   }
 }
