@@ -25,7 +25,7 @@
     "react": "^16.12.0",
     "react-native": "^0.61.5",
     "react-native-action-button": "^2.8.5",
-    "react-native-callkit": "git+https://github.com/react-native-webrtc/react-native-callkit",
+    "react-native-callkeep": "https://github.com/react-native-webrtc/react-native-callkeep.git",
     "react-native-deprecated-custom-components": "https://github.com/facebookarchive/react-native-custom-components.git",
     "react-native-gesture-handler": "^1.5.3",
     "react-native-linear-gradient": "^2.5.6",

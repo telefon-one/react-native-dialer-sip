@@ -5178,6 +5178,10 @@ react-native-action-button@^2.8.5:
   dependencies:
     prop-types "^15.5.10"
 
+"react-native-callkeep@https://github.com/react-native-webrtc/react-native-callkeep.git":
+  version "3.0.8"
+  resolved "https://github.com/react-native-webrtc/react-native-callkeep.git#ff0b4be792ea51757fd16601319b04411744981c"
+
 "react-native-callkit@git+https://github.com/react-native-webrtc/react-native-callkit":
   version "1.3.4"
   resolved "git+https://github.com/react-native-webrtc/react-native-callkit#80c7138a0e302a33be7690e4d9f79b4a62421be3"
