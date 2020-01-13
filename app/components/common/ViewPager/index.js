@@ -25,7 +25,8 @@ export default class ViewPager1 extends Component {
 
   UNSAFE_componentWillReceiveProps(nextProps: Props) {
     if (nextProps.selectedIndex !== this.state.selectedIndex) {
-      if (Platform.OS === 'ios') {
+      // Platform.OS => 'ios'
+      if (/*Platform.OS*/ 'ios' === 'ios') {
         this.scrollView.scrollTo({
           x: nextProps.selectedIndex * this.state.width,
           animated: true,
@@ -117,7 +118,7 @@ export default class ViewPager1 extends Component {
 
   renderContent(): Array<ReactElement> {
     const {width, height} = this.state;
-    const style = Platform.OS === 'ios' && s.card;
+    const style = 'ios'/*Platform.OS*/ === 'ios' && s.card;
 
     return React.Children.map(this.props.children, (child, i) => (
       <View style={[style, {width, height}]} key={'r_' + i}>
@@ -127,7 +128,8 @@ export default class ViewPager1 extends Component {
   }
 
   render() {
-    if (Platform.OS === 'ios') {
+
+    if ('ios'/*Platform.OS*/ === 'ios') {
       return this.renderIOS();
     } else {
       return this.renderAndroid();

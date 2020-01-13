@@ -1618,6 +1618,7 @@
 					"$(SRCROOT)/../node_modules/react-native-pjsip/ios/RTCPjSip/**",
 					"$(SRCROOT)/../node_modules/react-native-voip-push-notification/ios/RNVoipPushNotification",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../../../ios/Pods/Headers/Public/React/**",
 				);
 				INFOPLIST_FILE = dialersipTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1630,6 +1631,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"$(SRCROOT)/../../../ios/Pods/Headers/Public/React/**",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

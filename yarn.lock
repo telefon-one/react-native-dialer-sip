@@ -5178,14 +5178,6 @@ react-native-action-button@^2.8.5:
   dependencies:
     prop-types "^15.5.10"
 
-"react-native-callkeep@https://github.com/react-native-webrtc/react-native-callkeep.git":
-  version "3.0.8"
-  resolved "https://github.com/react-native-webrtc/react-native-callkeep.git#ff0b4be792ea51757fd16601319b04411744981c"
-
-"react-native-callkit@git+https://github.com/react-native-webrtc/react-native-callkit":
-  version "1.3.4"
-  resolved "git+https://github.com/react-native-webrtc/react-native-callkit#80c7138a0e302a33be7690e4d9f79b4a62421be3"
-
 "react-native-deprecated-custom-components@https://github.com/facebookarchive/react-native-custom-components.git":
   version "0.1.1"
   resolved "https://github.com/facebookarchive/react-native-custom-components.git#d5201e53221a2460b096ee82ff4480f3b0de7fe4"
@@ -5228,6 +5220,13 @@ react-native-navigation@^4.3.0:
     react-lifecycles-compat "2.0.0"
     tslib "1.9.3"
 
+react-native-pjsip@^2.7.4:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/react-native-pjsip/-/react-native-pjsip-2.7.4.tgz#f60664a274285458f127935ada8c0d6fc2f24e18"
+  integrity sha512-d5/Wh2l/ID+guqk1LwZ5m2Jf94/XYRrEKvESTBY55qDQ0lRoZ2G3+TDZzGHBAD//sFsTemzUgaSi9FjUETmA1g==
+  dependencies:
+    events "1.1.0"
+
 react-native-safe-area-context@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-0.6.2.tgz#d467ac8a953426bfbb6d8f417222b0dc3952be7a"
@@ -5247,9 +5246,10 @@ react-native-safe-area-view@^0.14.1:
   dependencies:
     debounce "^1.2.0"
 
-"react-native-sip2@https://github.com/telefon-one/react-native-sip2.git":
-  version "2.8.8"
-  resolved "https://github.com/telefon-one/react-native-sip2.git#6daba36c42f367551ba20d02ca2cfde2fc204160"
+react-native-sip2@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-sip2/-/react-native-sip2-3.0.2.tgz#1ecb51b19946cf3261611686d4192412d437071b"
+  integrity sha512-vHvrnJ/cweB8xmkxa5QtqJ6SSPE/FqteM92lRMZN5jrTZ2RJn4Xi6SkTu6aZrHij7tVxF793EWyMYsIr8LIjsA==
   dependencies:
     events "1.1.0"
 

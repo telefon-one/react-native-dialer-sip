@@ -1,6 +1,8 @@
 import {Platform, PushNotificationIOS, AppState} from 'react-native'
+//import {Endpoint} from 'react-native-pjsip'
 import {Endpoint} from 'react-native-sip2'
-import RNCallKit from 'react-native-callkit'
+
+//import RNCallKit from 'react-native-callkit'
 import VoipPushNotification from 'react-native-voip-push-notification'
 import uuid from 'uuid'
 
@@ -35,22 +37,69 @@ export function init() {
     console.log("6");
     const endpoint = new Endpoint()
     const state = await endpoint.start({
+      "name": "MyUserName",
+
+      //"username": "50363",
+      //"password": "pass50363",
+      //"domain": "sip.zadarma.com",
+      //"regServer": "sip.zadarma.com", // Default wildcard
+
+      "username": "50363",
+      "password": "pass50363",
+      "domain": "172.16.104.17",
+      "regServer": "",
+      //"regServer": "172.16.104.17", // Default wildcard
+
+
+      "proxy": null,
+      "transport": "UDP",//null, // Default TCP
+      
+      "regTimeout": 3600, // Default 3600
+      "regHeaders": {
+        //"X-Custom-Header": "Value"
+      },
+      //"regContactParams": ";unique-device-token-id=XXXXXXXXX",
+      "regOnAdd": true,  // Default true, use false for manual REGISTRATION
+
+/*
       service: {
-        ua: Platform.select({ios: "RnSIP iOS", android: "RnSIP Android"})
+        ua: Platform.select({ios: "Telefon iOS", android: "Telefon Android"})
       },
       network: {
         useWifi: true,
         useOtherNetworks: true
       }
+*/
+service: {
+  ua: "siptest" //,
+  //stun: ['stun.l.google.com:19302', 'stun4.l.google.com:19302']
+},
+
+network: {
+  useAnyway: true,           // Default: true
+  useWifi: true,              // Default: true
+  use3g: true,                // Default: false
+  useEdge: true,             // Default: false
+  useGprs: true,             // Default: false
+  useInRoaming: true,        // Default: false
+  useOtherNetworks: true      // Default: false
+}
     })
     console.log("7");
     const {accounts, calls, settings: endpointSettings, connectivity} = state
 
+    console.log(accounts, calls, connectivity);
+    console.log(999);
+
     // Subscribe to endpoint events
     endpoint.on("registration_changed", (account) => {
+      console.log("registration_changed");
+      console.log(account);
       dispatch(onAccountChanged(account))
     })
     endpoint.on("connectivity_changed", (available) => {
+      console.log("connectivity_changed");
+      console.log(available);
       dispatch(onConnectivityChanged(available))
     })
     endpoint.on("call_received", (call) => {
@@ -180,7 +229,7 @@ function initCallKitIntegration() {
     let incomingCall = null
     const uuids = {}
 
-    RNCallKit.setup({appName: 'React Native PjSip'})
+    //RNCallKit.setup({appName: 'React Native PjSip'})
 
     const {endpoint} = getState().pjsip
 
@@ -195,7 +244,7 @@ function initCallKitIntegration() {
         uuids[call.getCallId()] = uuid.v1()
       }
 
-      RNCallKit.displayIncomingCall(uuids[call.getCallId()], call.getRemoteFormattedNumber())
+      //RNCallKit.displayIncomingCall(uuids[call.getCallId()], call.getRemoteFormattedNumber())
     })
     endpoint.on("call_changed", (call) => {
       if (call.getId() === incomingCall && call.getState() != 'PJSIP_INV_STATE_INCOMING') {
@@ -208,7 +257,7 @@ function initCallKitIntegration() {
           uuids[call.getCallId()] = uuid.v1()
         }
 
-        RNCallKit.startCall(uuids[call.getCallId()], call.getRemoteFormattedNumber())
+        //RNCallKit.startCall(uuids[call.getCallId()], call.getRemoteFormattedNumber())
       }
     })
     endpoint.on("call_terminated", (call) => {
@@ -236,7 +285,7 @@ function initCallKitIntegration() {
         uuids[call.getCallId()] = uuid.v1()
       }
 
-      RNCallKit.endCall(uuids[call.getCallId()])
+      //RNCallKit.endCall(uuids[call.getCallId()])
 
       delete uuids[call.getCallId()]
     })
@@ -248,6 +297,7 @@ function initCallKitIntegration() {
 
     // TODO: Other actions like DTMF
 
+    /*
     RNCallKit.addEventListener('answerCall', () => {
       console.log("JS RNCallKit", "answerCall", incomingCall)
 
@@ -298,6 +348,7 @@ function initCallKitIntegration() {
       const {endpoint} = getState().pjsip
       endpoint.deactivateAudioSession()
     })
+    */
   }
 }
 
